@@ -22,8 +22,15 @@ body {
   background-repeat: no-repeat;
 }
 
-
-/* Tabla de Participantes */
+#btnSound {
+  height: 50px;
+  width: 50px;
+  background-image: url(../imgs/audio.svg);
+  background-position: top;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+/* Tabla de Participantes */ 
 
 #Animales {
   height: 100%;

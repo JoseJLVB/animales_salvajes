@@ -1,4 +1,5 @@
-export class animal{
+export default class Animal{
+    
     constructor (nombre, edad, img, comentarios, sonido){
         this._nombre = nombre
         this._edad = edad

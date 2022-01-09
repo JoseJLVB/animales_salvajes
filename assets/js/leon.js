@@ -1,10 +1,16 @@
-import { animal } from "./animal.js";
+import Animal from './Animal.js'
 
-export class leon extends animal{
-    constructor(nombre, edad, img, comentarios, sonido)
-        super(nombre, edad, img, comentarios, sonido, 'rugir')
+export default class Leon extends Animal {
+
+    constructor(nombre, edad, comentarios) {
+        super(nombre, edad, 'assets/imgs/Leon.png', comentarios, 'assets/sounds/Rugido.mp3')
     }
 
-    rugir () {
-        // this.sonido = this.sonido
+    async rugir() {
+        const player = document.getElementById('player');
+        player.innerHTML = `<source src="${this.sonido}" type="audio/mpeg">`;
+        await player.load();
+        await player.play();
     }
+
+}
