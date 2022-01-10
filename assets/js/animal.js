@@ -24,6 +24,10 @@ export default class Animal{
         return this._sonido
     }
 
+    get comentarios () {
+        return this._comentarios
+    }
+
     set comentarios (nuevo_comentarios) {
         this._comentarios = nuevo_comentarios
     }

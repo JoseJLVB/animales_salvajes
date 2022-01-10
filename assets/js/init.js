@@ -107,7 +107,7 @@ function draw(animales) {
 
         $("#Animales").append(
             `<div class="card bg-secondary" style="margin-right: 20px; width: 200px; margin-left: 20px;">
-                <img src="${animal.img}" class="card-img-top" style="height: 280px">
+                <img src="${animal.img}" class="card-img-top foto-modal" style="height: 280px">
                 <div class="card-body">
                     <button class="btn-dark" onclick="sonar(${i})" id="btnSound">
                         <img src = "assets/imgs/audio.svg" "width: 10px; height: 40px">
@@ -115,22 +115,25 @@ function draw(animales) {
                 </div>
             </div>`
         );
-    }
+        $('.foto-modal').on('click', function () {
+            $('#exampleModal').modal('show');
+            $('.modal-body').html(`
+                <div class="card m-1 bg-secondary" style="">
+                    <img src="${animal.img}" class="card-img-top" alt="Animal">
+                    <div class="card-body py-1 text-center">
+                        <h5>Edad:</h5> 
+                        <p>${animal.edad}</p>
+                        <h5>Comentarios</h5>
+                        <p>${animal.comentarios}</p>                    
+                    </div>
+                </div>`
+            );
+        });
+    };
 }
 
-$('.modalFade').on('click', function () {
-       $('#exampleModal').modal('show');
-       $('.modal-body').html(`
-           <div class="card m-1 bg-secondary" style="">
-             <img src="assets/imgs/${img}" class="card-img-top" alt="Animal">
-             <div class="card-body py-1 text-center">
-               <p class="edad">5 - 8 años</p>
-               <p>Comentarios</p>
-               <p>Fue elegido como animal salvaje del año</p>
-             </div>
-           </div>
-      `);
-     });
+
+
 
 window.sonar = (pos) => {
     let animal = animalList[pos];
